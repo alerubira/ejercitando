@@ -71,5 +71,68 @@ function filterOutOdds() {
    console.log(filterPares(1,2,3,4,5,6,7,8,9));*/
    /*6.- Escriba una función buscarMinimo que acepte un número variable de argumentos y 
 retorne el valor mas chico. */
-let buscarMunimo=(numero1,...nums)=>nums.filter(numero=>numero>numero1);
-console.log(buscarMunimo(1,2,3,4,5,6,7));
+/*let buscarMunimo=(...nums)=>{
+    var aux=nums[0];
+    for(let actual of nums){
+        if(actual<aux){
+            aux=actual;
+        }
+    }
+    return aux;
+}
+console.log(buscarMunimo(8,9,3,4,5,6,7));*/
+/*7.- Escriba una función potenciarYRetornarArgumentos() que acepte un array y un número 
+variable de argumentos. La función debe retornar un nuevo array con los valores del array 
+original además de los argumentos pasados elevados al cuadrado. 
+Ej. 
+potenciarYRetornarArgumentos ([1,2,3],4,8) // [1,2,3,16,64] 
+potenciarYRetornarArgumentos ([2],10,4) // [2, 100, 16] */
+/*let potenciarYRetornarArgumentos=(arr,...nums)=>{
+    for(let numero of nums){
+        arr.push(Math.pow(numero,2));
+    }
+    return arr;
+}
+console.log(potenciarYRetornarArgumentos ([2],10,4) );*/
+/*8.- Desarrolle un formulario que solicite Año, Valor de inflación y Suceso. 
+Controle que año este entre 1900 y 2020. 
+Controle que Valor de inflación sea mayor a 0 y tenga 2 decimales. 
+Controle que suceso sea una cadena de hasta 20 caracteres. 
+Agregue un botón que permita cargar los valores en un array de objetos. 
+Agregue 3 botones que permitan imprimir un listado de los datos ordenados por Año, por 
+inflación y por Suceso.*/
+let suceso=document.getElementById("suceso");
+let anio=document.getElementById("año");
+let inflacion=document.getElementById("inflacion");
+let datos=[{}];
+let div2=document.getElementById("div2");
+function cargar(){
+    if(anio.value<1900||anio.value>2020){
+        alert("El año debe ser despues de 1900 y antes de 2024");
+        anio.focus();
+    }
+    if(suceso.value.length>20){
+        alert("El suceso debe contener hasta 20 caracteres");
+        suceso.focus();
+    }
+    var regex = /^\d+(\.\d{2})?$/; // Expresión regular para dos decimales
+    if(inflacion.value<0||!regex.test(inflacion.value)){
+        alert("La inflacion debe ser mayor a 0 y tener 2 decimales");
+        inflacion.focus();
+    }
+    datos.push({suceso:suceso.value,anio:anio.value,inflacion:inflacion.value});
+    suceso.value="";
+    anio.value="";
+    inflacion.value="";
+} 
+function ordenA(){
+    let aux=datos;
+    let aux2;
+    let a=aux.length-1;
+    for(var i=0,i=a, i++){
+
+    }
+
+}
+
+

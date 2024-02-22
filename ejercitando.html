@@ -10,7 +10,25 @@
 <body>
     <div id="principal">
         <div id="div1">
-
+           <!--8.- Desarrolle un formulario que solicite Año, Valor de inflación y Suceso. 
+                Controle que año este entre 1900 y 2020. 
+                Controle que Valor de inflación sea mayor a 0 y tenga 2 decimales. 
+                Controle que suceso sea una cadena de hasta 20 caracteres. 
+                Agregue un botón que permita cargar los valores en un array de objetos. 
+                 Agregue 3 botones que permitan imprimir un listado de los datos ordenados por Año, por 
+               inflación y por Suceso. 
+            -->  
+            <form id="miFormulario" onsubmit="event.preventDefault()">
+                <label for="sucseso">Suceso:</label>
+                <input type="text" id="suceso" name="suceso" required><br><br>
+                <label for="año" >Año:</label>
+                <input type="number" id="año" name="año" required><br><br>
+                <label for="inflacion">Valor de inflacion</label>
+                <input type="number" name="inflacion" id="inflacion" step="0.0001" required><br><br>
+                <input type="submit" value="Cargar"  onclick="cargar()">
+                <button onclick="ordenA()">Lista por Año</button>
+              </form>
+            
         </div>
         <div id="div2">
 
