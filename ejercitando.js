@@ -106,33 +106,73 @@ let anio=document.getElementById("año");
 let inflacion=document.getElementById("inflacion");
 let datos=[{}];
 let div2=document.getElementById("div2");
+let bandera;
 function cargar(){
-    if(anio.value<1900||anio.value>2020){
+    if(verificar()){
+        datos.push({suceso:suceso.value,anio:anio.value,inflacion:inflacion.value});
+        suceso.value="";
+        anio.value="";
+        inflacion.value="";
+        console.log(datos);
+
+    }
+    
+} 
+function verificar(){
+    bandera=true;
+     if(anio.value<1900||anio.value>2020){
         alert("El año debe ser despues de 1900 y antes de 2024");
         anio.focus();
+        bandera = false;
     }
     if(suceso.value.length>20){
         alert("El suceso debe contener hasta 20 caracteres");
         suceso.focus();
+        bandera = false;
     }
     var regex = /^\d+(\.\d{2})?$/; // Expresión regular para dos decimales
     if(inflacion.value<0||!regex.test(inflacion.value)){
         alert("La inflacion debe ser mayor a 0 y tener 2 decimales");
         inflacion.focus();
+        bandera = false;
     }
-    datos.push({suceso:suceso.value,anio:anio.value,inflacion:inflacion.value});
-    suceso.value="";
-    anio.value="";
-    inflacion.value="";
-} 
+    return bandera;
+}
 function ordenA(){
     let aux=datos;
-    let aux2;
-    let a=aux.length-1;
-    for(var i=0,i=a, i++){
+    aux.sort((a,b)=>a.anio - b.anio);
+    mensaje=` Año: ${c.anio} , Suceso: ${c.suceso} , Inflación: ${c.inflacion}`;
+    listar(aux,mensaje);
+}
+function ordenI(){
+    let aux=datos;
+
+    mensaje=`Inflacion: ${c.inflacion} ,Año: ${c.anio} , Suceso: ${c.suceso}`;
+    listar(aux,mensaje);
+}
+function ordenS(){
+   let aux=datos;
+
+   mensaje=`Suceso: ${c.suceso} , Año: ${c.anio} , Inflcion: ${c.inflacion}`;
+   listar(aux,mensaje);
+}
+function listar(aux,mensaje){
+    for(let c of aux){
+        let d = mensaje;
+
+        // Crear un elemento de párrafo
+        const nuevoParrafo = document.createElement("p");
+
+        // Crear un nodo de texto con la cadena 'd'
+        const textoNodo = document.createTextNode(d);
+
+       // Agregar el nodo de texto al elemento <p>
+        nuevoParrafo.appendChild(textoNodo);
+
+       // Agregar el elemento <p> al div
+       div2.appendChild(nuevoParrafo);
 
     }
-
 }
 
 
