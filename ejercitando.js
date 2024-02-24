@@ -106,13 +106,13 @@ let anio=document.getElementById("año");
 let inflacion=document.getElementById("inflacion");
 let datos=[{}];
 let div2=document.getElementById("div2");
+let miFormulario=document.getElementById("miFormulario");
 let bandera;
+suceso.focus();
 function cargar(){
     if(verificar()){
         datos.push({suceso:suceso.value,anio:anio.value,inflacion:inflacion.value});
-        suceso.value="";
-        anio.value="";
-        inflacion.value="";
+        limpiar();
         console.log(datos);
 
     }
@@ -141,24 +141,25 @@ function verificar(){
 function ordenA(){
     let aux=datos;
     aux.sort((a,b)=>a.anio - b.anio);
-    mensaje=` Año: ${c.anio} , Suceso: ${c.suceso} , Inflación: ${c.inflacion}`;
-    listar(aux,mensaje);
+    listar(aux);
 }
 function ordenI(){
     let aux=datos;
-
-    mensaje=`Inflacion: ${c.inflacion} ,Año: ${c.anio} , Suceso: ${c.suceso}`;
-    listar(aux,mensaje);
+    aux.sort((a,b)=>a.inflacion-b.inflacion);
+    listar(aux);
 }
 function ordenS(){
    let aux=datos;
-
-   mensaje=`Suceso: ${c.suceso} , Año: ${c.anio} , Inflcion: ${c.inflacion}`;
-   listar(aux,mensaje);
+   aux.sort((a, b) => {
+    return a.suceso.localeCompare(b.suceso);
+  });
+  
+   listar(aux);
 }
-function listar(aux,mensaje){
+function listar(aux){
+    limpiarDiv();
     for(let c of aux){
-        let d = mensaje;
+        let d = `Suceso: ${c.suceso} , Año: ${c.anio} , Inflcion: ${c.inflacion}`;
 
         // Crear un elemento de párrafo
         const nuevoParrafo = document.createElement("p");
@@ -173,6 +174,14 @@ function listar(aux,mensaje){
        div2.appendChild(nuevoParrafo);
 
     }
+}function limpiar(){
+    miFormulario.reset();
 }
+function limpiarDiv(){
+    while (div2.firstChild) {
+        div2.removeChild(div2.firstChild);
+    }
+}
+
 
 
