@@ -182,18 +182,46 @@ function limpiarDiv(){
         div2.removeChild(div2.firstChild);
     }
 }*/
-let palabras=["arbol" , "banana" , "cascara", "dedo" ,"frio","gracias" ];
-const inputField = document.querySelector('.autocomplete');
+let palabras=["arbol" , "banana" , "cascara", "dedo" ,"frio","gracias","arena","ardilla" ];
+let div2=document.getElementById("div2");
+var input = document.getElementById('ingreso');
+input.focus();
+let palabraSeleccionada;
+// Agregar un event listener para el evento 'input'
+input.addEventListener('input', function() {
+    // Obtener el valor del campo de entrada
+    var valor = input.value;
 
-inputField.addEventListener('input', function(event) {
-    const userInput = event.target.value.trim();
-    if (userInput.length > 0) {
-        const primeraLetra = userInput.charAt(0);
-        console.log("Primera letra ingresada:", primeraLetra);
-        // Aquí puedes hacer lo que necesites con la primera letra ingresada
+    // Verificar si el valor no está vacío
+    if (valor.length > 0) {
+        // Obtener la primera letra del valor
+        var primeraLetra = valor.charAt(0).toLowerCase();
+        console.log("Primera letra ingresada: " + primeraLetra);
     }
+    var opciones=palabras.filter(item => item.charAt(0)===primeraLetra);
+    console.log(opciones);
+    while(div2.firstChild){
+        div2.removeChild(div2.firstChild);
+    }
+    for(let i of opciones){
+        parrafo=document.createElement("p");
+        nodo=document.createTextNode(i);
+        parrafo.appendChild(nodo);
+        div2.appendChild(parrafo);
+        parrafo.addEventListener("click", function(event){
+            let parrafoClickeado=event.target;
+            let palabra=parrafoClickeado.textContent;
+            console.log(palabra);
+            input.value=palabra;
+    }); 
+    };
+    
+       
 });
-
+input.addEventListener("click",function(){
+    palabraSeleccionada=input.value;
+    console.log(`Usted selecciono : ${palabraSeleccionada}`);
+  });
 
 
 
