@@ -101,10 +101,10 @@ Controle que suceso sea una cadena de hasta 20 caracteres.
 Agregue un botón que permita cargar los valores en un array de objetos. 
 Agregue 3 botones que permitan imprimir un listado de los datos ordenados por Año, por 
 inflación y por Suceso.*/
-let suceso=document.getElementById("suceso");
+/*let suceso=document.getElementById("suceso");
 let anio=document.getElementById("año");
 let inflacion=document.getElementById("inflacion");
-let datos=[{}];
+let datos=[];
 let div2=document.getElementById("div2");
 let miFormulario=document.getElementById("miFormulario");
 let bandera;
@@ -181,7 +181,19 @@ function limpiarDiv(){
     while (div2.firstChild) {
         div2.removeChild(div2.firstChild);
     }
-}
+}*/
+let palabras=["arbol" , "banana" , "cascara", "dedo" ,"frio","gracias" ];
+const inputField = document.querySelector('.autocomplete');
+
+inputField.addEventListener('input', function(event) {
+    const userInput = event.target.value.trim();
+    if (userInput.length > 0) {
+        const primeraLetra = userInput.charAt(0);
+        console.log("Primera letra ingresada:", primeraLetra);
+        // Aquí puedes hacer lo que necesites con la primera letra ingresada
+    }
+});
+
 
 
 
