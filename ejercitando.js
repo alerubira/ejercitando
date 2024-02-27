@@ -182,7 +182,7 @@ function limpiarDiv(){
         div2.removeChild(div2.firstChild);
     }
 }*/
-let palabras=["arbol" , "banana" , "cascara", "dedo" ,"frio","gracias","arena","ardilla" ];
+/*let palabras=["arbol" , "banana" , "cascara", "dedo" ,"frio","gracias","arena","ardilla","acacia" ];
 let div2=document.getElementById("div2");
 var input = document.getElementById('ingreso');
 input.focus();
@@ -194,11 +194,11 @@ input.addEventListener('input', function() {
 
     // Verificar si el valor no está vacío
     if (valor.length > 0) {
-        // Obtener la primera letra del valor
-        var primeraLetra = valor.charAt(0).toLowerCase();
+        // Obtener las  letras del valor
+        var primeraLetra = valor.toLowerCase();
         console.log("Primera letra ingresada: " + primeraLetra);
     }
-    var opciones=palabras.filter(item => item.charAt(0)===primeraLetra);
+    var opciones=palabras.filter(item => item.startsWith(primeraLetra));
     console.log(opciones);
     while(div2.firstChild){
         div2.removeChild(div2.firstChild);
@@ -221,7 +221,45 @@ input.addEventListener('input', function() {
 input.addEventListener("click",function(){
     palabraSeleccionada=input.value;
     console.log(`Usted selecciono : ${palabraSeleccionada}`);
-  });
+  });*/
+ /* 1.- Construir 2 clases (Persona y Empleado) 
+Persona debe tener: 
+ nombre (pública) 
+ edad (pública) 
+ altura (privada) 
+ peso (privada) 
+Empleado es una persona y tiene un sueldo (privado). 
+Ambas clases deben tener un método público que permita imprimir un resumen de su 
+información. 
+Cree instancias de las clases y compruebe su funcionamiento. 
+Compruebe el polimorfismo creando una función que reciba por parámetro cualquiera de 
+los objetos e imprima su información. 
+Agregue un método a la clase Empleado que permita llevar la cantidad de instancias 
+creadas.*/
+class Persona {
+    constructor(nombre,edad,altura,peso) {
+        this.nombre=nombre;
+        this.edad=edad;
+        let _altura= altura;
+        let _peso= peso;  
+     }
+     mostrar(){
+        console.log(`Nombre : ${this.nombre} , Edad: ${this.edad} , Altura: ${altura} , Peso: ${peso} ` );
+    }
+}
+class Empleado extends Persona{
+    constructor(nombre,edad,altura,peso,sueldo){
+        super(nombre,edad,altura,peso);
+        let _sueldo=sueldo;
+    }
+    mostrar(){
+        console.log(`Nombre : ${this.nombre} , Edad: ${this.edad} , Altura: ${altura} , Peso: ${peso} , Sueldo: ${sueldo} pesos` );
+    }
+}
+Ale=new Persona("Alejandro",45,1.70,80);
+Juan=new Empleado("Juan",43,1,78,85,300000);
+Ale.mostrar();
+Juan.mostrar();
 
 
 
