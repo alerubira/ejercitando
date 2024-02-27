@@ -241,25 +241,42 @@ class Persona {
         this.nombre=nombre;
         this.edad=edad;
         let _altura= altura;
-        let _peso= peso;  
+        let _peso= peso; 
+        this.mostrar=function(){
+            console.log(`Nombre : ${this.nombre} , Edad: ${this.edad} , Altura: ${_altura} , Peso: ${_peso} ` ); 
      }
-     mostrar(){
-        console.log(`Nombre : ${this.nombre} , Edad: ${this.edad} , Altura: ${altura} , Peso: ${peso} ` );
+     
     }
 }
 class Empleado extends Persona{
-    constructor(nombre,edad,altura,peso,sueldo){
+    static cantidad=0;
+    constructor(nombre,edad,altura,peso,sueldo){   
         super(nombre,edad,altura,peso);
         let _sueldo=sueldo;
+        // Incrementar la cantidad de empleados cada vez que se crea una instancia
+        Empleado.cantidad++;
+       this.mostrar =function () {
+            console.log(`Nombre: ${this.nombre}, Edad: ${this.edad}, Altura: ${this.altura}, Peso: ${this.peso}, Sueldo: ${this.sueldo}`);
+        }
     }
-    mostrar(){
-        console.log(`Nombre : ${this.nombre} , Edad: ${this.edad} , Altura: ${altura} , Peso: ${peso} , Sueldo: ${sueldo} pesos` );
+    static fromPersona(persona, sueldo) {
+        return new Empleado(persona.nombre, persona.edad, persona._altura, persona._peso, sueldo);
     }
+
+    
+    
+   
 }
 Ale=new Persona("Alejandro",45,1.70,80);
-Juan=new Empleado("Juan",43,1,78,85,300000);
-Ale.mostrar();
-Juan.mostrar();
-
-
+Juan=new Empleado("Juan",43,1.78,85,300000);
+luis=new Empleado("Luis",55,1.56,76,299990);
+ale= Empleado.fromPersona(Ale,276666666);
+function ver(objeto){
+      objeto.mostrar();
+}
+ver(Ale);
+ver(Juan);
+ver(luis);
+ver(ale);
+console.log(`Se crearon ${Empleado.cantidad} empleados`);
 
