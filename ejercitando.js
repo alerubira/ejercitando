@@ -236,7 +236,7 @@ Compruebe el polimorfismo creando una función que reciba por parámetro cualqui
 los objetos e imprima su información. 
 Agregue un método a la clase Empleado que permita llevar la cantidad de instancias 
 creadas.*/
-class Persona {
+/*class Persona {
     constructor(nombre,edad,altura,peso) {
         this.nombre=nombre;
         this.edad=edad;
@@ -249,18 +249,18 @@ class Persona {
     }
 }
 class Empleado extends Persona{
-    static cantidad=0;
+    static cantidad=0;//atriburo que pertenece a la clase y no a los ojetos creados
     constructor(nombre,edad,altura,peso,sueldo){   
         super(nombre,edad,altura,peso);
         let _sueldo=sueldo;
         // Incrementar la cantidad de empleados cada vez que se crea una instancia
         Empleado.cantidad++;
        this.mostrar =function () {
-            console.log(`Nombre: ${this.nombre}, Edad: ${this.edad}, Altura: ${this.altura}, Peso: ${this.peso}, Sueldo: ${this.sueldo}`);
+            console.log(`Nombre: ${this.nombre}, Edad: ${this.edad}, Altura: ${altura}, Peso: ${peso}, Sueldo: ${_sueldo}`);
         }
     }
     static fromPersona(persona, sueldo) {
-        return new Empleado(persona.nombre, persona.edad, persona._altura, persona._peso, sueldo);
+        return new Empleado(persona.nombre, persona.edad,persona._altura, persona._peso, sueldo);
     }
 
     
@@ -278,5 +278,41 @@ ver(Ale);
 ver(Juan);
 ver(luis);
 ver(ale);
-console.log(`Se crearon ${Empleado.cantidad} empleados`);
-
+console.log(`Se crearon ${Empleado.cantidad} empleados`);*/
+/*import{fecha} from "D:\Users\Gabriel\Desktop\ejercitando\fecha.js";
+fecha();*/
+/*3.- Programe un array listaPersonas que tenga como contenido objetos personas que 
+tengan un nombre, apellido, documento, altura y peso. 
+Defina una función que retorne dichos objetos. 
+Ej. 
+let listaPersonas = 
+[{nombre:”juan”,apellido:”Gomez”,documento:”22112277”,altura:175,peso:80},{…},{
+…}] 
+Luego recorra la lista usando un bucle for para imprimir el nombre y apellido de cada 
+persona. 
+Realice el mismo procedimiento usando los bucles for..in, for..of y forEach 
+Modifique la función creadora de objetos para que los objetos creados incorporen una 
+función que retorne el índice de masa corporal (IMC). 
+ 
+Vuelva a recorrer la lista de personas imprimiendo también el IMC.*/
+let listaPersonas = 
+[{nombre:"juan",apellido:"Gomez",documento:"22112277",altura:175,peso:80},
+{nombre:"Alejandro",apellido:"Rubira",documento:"26833093",altura:170,peso:81},
+{nombre:"Luis",apellido:"Garcia",documento:"40319654",altura:165,peso:55}];
+/*let retornar=personas=>personas;
+console.log(retornar(listaPersonas));*/
+for( n=0;n<listaPersonas.length;n++){
+   console.log(`Nombre: ${listaPersonas[n].nombre} , Apellido: ${listaPersonas[n].apellido}`);
+}
+console.log(`_________________________________________________________`);
+for(let n of listaPersonas){
+    console.log(`Nombre: ${n.nombre} , Apellido: ${n. apellido} `);
+}
+console.log("----------------------------------------------------------");
+for(let a in listaPersonas){
+    console.log(`Nombre: ${listaPersonas[a].nombre} , Apellido: ${listaPersonas[a].apellido}`);
+}
+console.log("**********************************************************");
+listaPersonas.forEach(elemento=>{
+    console.log(`Nombre: ${elemento.nombre} , Apellido: ${elemento.apellido}`);
+})
