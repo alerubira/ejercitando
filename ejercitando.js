@@ -295,13 +295,20 @@ Modifique la función creadora de objetos para que los objetos creados incorpore
 función que retorne el índice de masa corporal (IMC). 
  
 Vuelva a recorrer la lista de personas imprimiendo también el IMC.*/
-let listaPersonas = 
+/*let listaPersonas = 
 [{nombre:"juan",apellido:"Gomez",documento:"22112277",altura:175,peso:80},
 {nombre:"Alejandro",apellido:"Rubira",documento:"26833093",altura:170,peso:81},
-{nombre:"Luis",apellido:"Garcia",documento:"40319654",altura:165,peso:55}];
-/*let retornar=personas=>personas;
-console.log(retornar(listaPersonas));*/
-for( n=0;n<listaPersonas.length;n++){
+{nombre:"Luis",apellido:"Garcia",documento:"40319654",altura:165,peso:85}];
+let retornar=personas=>{ 
+     for(let d of personas){
+        d.calcularIMC=function(){
+            return d.peso/(Math.pow((d.altura/100),2));
+        }
+     }
+     return personas;
+}
+retornar(listaPersonas);
+/*for( n=0;n<listaPersonas.length;n++){
    console.log(`Nombre: ${listaPersonas[n].nombre} , Apellido: ${listaPersonas[n].apellido}`);
 }
 console.log(`_________________________________________________________`);
@@ -311,8 +318,24 @@ for(let n of listaPersonas){
 console.log("----------------------------------------------------------");
 for(let a in listaPersonas){
     console.log(`Nombre: ${listaPersonas[a].nombre} , Apellido: ${listaPersonas[a].apellido}`);
-}
-console.log("**********************************************************");
+}*/
+/*console.log("**********************************************************");
 listaPersonas.forEach(elemento=>{
-    console.log(`Nombre: ${elemento.nombre} , Apellido: ${elemento.apellido}`);
-})
+    console.log(`Nombre: ${elemento.nombre} , Apellido: ${elemento.apellido} , IMC: ${elemento.calcularIMC()}`);
+})*/
+let array=["ana","jose","juana","ana","luis","jose"];
+
+let arrayNoRepetido= new Set(array);
+console.log(arrayNoRepetido);
+
+let array2 = array.filter((valor, indice, self) => {
+    return self.indexOf(valor) === indice;
+});
+/*La función de callback (valor, indice, self) => { return self.indexOf(valor) === indice; } se pasa al método filter.
+Dentro de la función de callback, valor es el elemento actual que está siendo evaluado, 
+indice es el índice de ese elemento en el array, y self es el propio array.
+La expresión self.indexOf(valor) === indice verifica si el índice del elemento actual
+ en el array es igual al índice de la primera aparición del elemento en el array. 
+Esto significa que si el índice del elemento actual no es igual al índice de su primera aparición,
+ entonces es un elemento repetido y no será incluido en el resultado final.*/
+console.log(array2);
