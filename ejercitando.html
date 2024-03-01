@@ -30,11 +30,35 @@
                 <button onclick="ordenI()">Lista por inflacion</button>
                 <button onclick="ordenS()">lista por Suceso</button>
               </form>-->
-            <!--<input type=”text” class=”autocomplete” id="ingreso" placeholder="Escriba Aqui">-->     
-            
+            <!--<input type=”text” class=”autocomplete” id="ingreso" placeholder="Escriba Aqui">-->
+            <button onclick="verTodos()">Ver Todos los Libros</button> 
+            <button onclick="agregar()">Agregar Libro</button>    
+            <form id="miFormulario" onsubmit="event.preventDefault()" style="display: none;">
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" required><br><br>
+                <label for="label" >Etiqueta:</label>
+                <input type="text" id="label" name="label" required><br><br>
+                <label for="name">Nombre</label>
+                <input type="text" name="name" id="name"  required><br><br>
+                <label for="author">Autor:</label>
+                <input type="text" name="author" id="author" required><br><br>
+                <label for="genre_s">Genero:</label>
+                <input type="text" name="genre_s" id="genre-s"required> <br><br>
+                <label for="stock">Stock</label>
+                <input type="radio" id="Stock" name="stock" value="true" required>
+                <label for="stock">Sí</label>
+                <input type="radio" id="stockNo" name="stock" value="false"required>
+                <label for="StockNo">No</label><br><br>
+                <label for="price">Precio</label>
+                <input type="number" name="price" id="price" required><br><br>
+                <label for="pages_i">Paginas</label>
+                <input type="number" name="pages_i" id="pages_i" required><br><br>
+                <input type="submit" value="Cargar"  onclick="cargar()">
+                
+              </form>
         </div>
         <div id="div2">
-
+            
         </div>
     </div>
 </body>

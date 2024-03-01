@@ -323,7 +323,7 @@ for(let a in listaPersonas){
 listaPersonas.forEach(elemento=>{
     console.log(`Nombre: ${elemento.nombre} , Apellido: ${elemento.apellido} , IMC: ${elemento.calcularIMC()}`);
 })*/
-let array=["ana","jose","juana","ana","luis","jose"];
+/*let array=["ana","jose","juana","ana","luis","jose"];
 
 let arrayNoRepetido= new Set(array);
 console.log(arrayNoRepetido);
@@ -338,4 +338,83 @@ La expresión self.indexOf(valor) === indice verifica si el índice del elemento
  en el array es igual al índice de la primera aparición del elemento en el array. 
 Esto significa que si el índice del elemento actual no es igual al índice de su primera aparición,
  entonces es un elemento repetido y no será incluido en el resultado final.*/
-console.log(array2);
+//console.log(array);
+let libros=[ 
+    { 
+    "id" : "978-0641723445", 
+    "label" : ["book","hardcover"], 
+    "name" : "The Lightning Thief", 
+    "author" : "Rick Riordan", 
+    "series_t" : "Percy Jackson and the Olympians", 
+    "genre_s" : "fantasy", 
+    "inStock" : true, 
+    "price" : 12, 
+    "pages_i" : 384 
+    } 
+    , 
+    { 
+    "id" : "978-1857995879", 
+    "label" : ["book","paperback"], 
+    "name" : "Sophie's World : The Greek Philosophers", 
+    "author" : "Jostein Gaarder", 
+    "genre_s" : "fantasy", 
+    "inStock" : true, 
+    "price" : 3, 
+    "pages_i" : 64 
+    } 
+    , 
+    { 
+    "id" : "978-1933988177", 
+    "label" : ["Article","paperback"], 
+    "name" : "Lucene in Action, Second Edition", 
+    "author" : "Michael McCandless", 
+    "genre_s" : "IT", 
+    "inStock" : true, 
+    "price" : 30, 
+    "pages_i" : 475 
+    } 
+    ];
+    let div2=document.getElementById("div2");
+    let miFormulario=document.getElementById("miFormulario");
+    function verTodos(){
+        limpiar();
+     for(let obj of libros){
+        let d = `ID : ${obj.id}
+        Etiqueta: ${obj.label}
+        Nombre: ${obj.name}
+        Autor: ${obj.author}
+        Genero: ${obj.genre_s}
+        ${obj.inStock ?"Stock Disponible" : "No Hay en Stock"}
+        Precio: ${obj.price}
+        Paginas: ${obj.pages_i}`;
+
+        // Crear un elemento de párrafo
+        const nuevoParrafo = document.createElement("p");
+
+        // Crear un nodo de texto con la cadena 'd'
+        const textoNodo = document.createTextNode(d);
+
+       // Agregar el nodo de texto al elemento <p>
+        nuevoParrafo.appendChild(textoNodo);
+
+       // Agregar el elemento <p> al div
+       div2.appendChild(nuevoParrafo);
+
+     }
+    }
+
+    function agregar(){
+        limpiar();
+        miFormulario.style.display="block";
+    }
+    function cargar(){
+
+    }
+     function limpiar(){
+        miFormulario.style.display="none";
+        while(div2.firstChild){
+            div2.removeChild(div2.firstChild);
+        }
+     }
+    
+    
