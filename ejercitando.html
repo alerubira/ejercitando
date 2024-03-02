@@ -32,7 +32,10 @@
               </form>-->
             <!--<input type=”text” class=”autocomplete” id="ingreso" placeholder="Escriba Aqui">-->
             <button onclick="verTodos()">Ver Todos los Libros</button> 
-            <button onclick="agregar()">Agregar Libro</button>    
+            <button onclick="agregar()">Agregar Libro</button>  
+            <button onclick="seleccionarPorPrecio()">Seleccionar Por Precio</button>
+            <input type="number" id="seleccionarPrecio" placeholder="Seleccione el precio y precione enter" style="display: none;"> 
+
             <form id="miFormulario" onsubmit="event.preventDefault()" style="display: none;">
                 <label for="id">ID:</label>
                 <input type="text" id="id" name="id" required><br><br>

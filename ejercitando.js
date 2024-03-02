@@ -378,29 +378,8 @@ let libros=[
     let miFormulario=document.getElementById("miFormulario");
     function verTodos(){
         limpiar();
-     for(let obj of libros){
-        let d = `ID : ${obj.id}
-        Etiqueta: ${obj.label}
-        Nombre: ${obj.name}
-        Autor: ${obj.author}
-        Genero: ${obj.genre_s}
-        ${obj.inStock ?"Stock Disponible" : "No Hay en Stock"}
-        Precio: ${obj.price}
-        Paginas: ${obj.pages_i}`;
-
-        // Crear un elemento de párrafo
-        const nuevoParrafo = document.createElement("p");
-
-        // Crear un nodo de texto con la cadena 'd'
-        const textoNodo = document.createTextNode(d);
-
-       // Agregar el nodo de texto al elemento <p>
-        nuevoParrafo.appendChild(textoNodo);
-
-       // Agregar el elemento <p> al div
-       div2.appendChild(nuevoParrafo);
-
-     }
+        mostrar(libros);
+     
     }
 
     function agregar(){
@@ -408,7 +387,78 @@ let libros=[
         miFormulario.style.display="block";
     }
     function cargar(){
+          // Capturando los valores de los campos del formulario
+          var id = document.getElementById("id").value;
+          var label = document.getElementById("label").value;
+          var name = document.getElementById("name").value;
+          var author = document.getElementById("author").value;
+          var genre = document.getElementById("genre-s").value;
+          var stock = document.querySelector('input[name="stock"]:checked').value === "true";
+          var price = parseFloat(document.getElementById("price").value);
+          var pages = parseInt(document.getElementById("pages_i").value);
+  
+          // Creando un objeto con los datos capturados
+          var libro = {
+              id: id,
+              label: label,
+              name: name,
+              author: author,
+              genre_s: genre,
+              stock: stock,
+              price: price,
+              pages_i: pages
+          };
+          libros.push(libro);
+          miFormulario.reset();
+          limpiar();
+    }
+    function seleccionarPorPrecio(){
+        limpiar();
+        let sele=document.getElementById("seleccionarPrecio");
+        sele.style.display="block";
+        sele.focus();
+        sele.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Evita el comportamiento predeterminado de enviar el formulario
+                var valorPrecio = parseFloat(this.value); // Obtener el valor del campo de entrada como un número
+                // Llamar a la función deseada con el valor del precio
+                seleccionar(valorPrecio);
+                sele.value="";
+                sele.style.display="none";
+            }
 
+        });
+        ;
+    }
+    function seleccionar(valorPrecio){
+        let seleccionados=libros.filter(obj=>obj.price>valorPrecio);
+        mostrar(seleccionados)
+        //seleccionados=0;
+    }
+    function mostrar(libross){
+        for(let obj of libross){
+            let d = `ID : ${obj.id}
+            Etiqueta: ${obj.label}
+            Nombre: ${obj.name}
+            Autor: ${obj.author}
+            Genero: ${obj.genre_s}
+            ${obj.inStock ?"Stock Disponible" : "No Hay en Stock"}
+            Precio: ${obj.price}
+            Paginas: ${obj.pages_i}`;
+    
+            // Crear un elemento de párrafo
+            const nuevoParrafo = document.createElement("p");
+    
+            // Crear un nodo de texto con la cadena 'd'
+            const textoNodo = document.createTextNode(d);
+    
+           // Agregar el nodo de texto al elemento <p>
+            nuevoParrafo.appendChild(textoNodo);
+    
+           // Agregar el elemento <p> al div
+           div2.appendChild(nuevoParrafo);
+    
+         }
     }
      function limpiar(){
         miFormulario.style.display="none";
