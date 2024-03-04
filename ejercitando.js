@@ -412,9 +412,10 @@ let libros=[
           miFormulario.reset();
           limpiar();
     }
+    let sele=document.getElementById("seleccionarPrecio");
     function seleccionarPorPrecio(){
         limpiar();
-        let sele=document.getElementById("seleccionarPrecio");
+        
         sele.style.display="block";
         sele.focus();
         sele.addEventListener("keypress", function(event) {
@@ -429,6 +430,33 @@ let libros=[
 
         });
         ;
+    }
+    let select=document.getElementById("select");
+    function seleccionarPorEtiqueta(){
+        limpiar();
+        select.style.display="block";
+        var opcion=document.createElement("select");
+        var etiquetas= new Set();
+        for(let a of libros){
+               for(let b of a.label){
+                etiquetas.add(b);
+               }
+        }
+        for(let c of etiquetas){
+            var opcion = document.createElement("option");
+            opcion.text = c;
+            opcion.value = c;
+            select.add(opcion);
+        }
+        select.addEventListener("change", function() {
+        var opcionSeleccionada = select.value;
+        seleccionarE(opcionSeleccionada);
+        });
+    }
+    function seleccionarE(opcion){
+         let seleccionadosE=libros.filter(obj=>obj.label[0]===opcion||obj.label[1]===opcion);
+         mostrar(seleccionadosE);
+         select.style.display="none";
     }
     function seleccionar(valorPrecio){
         let seleccionados=libros.filter(obj=>obj.price>valorPrecio);
@@ -461,6 +489,8 @@ let libros=[
          }
     }
      function limpiar(){
+        sele.style.display="none";
+        select.style.display="none";
         miFormulario.style.display="none";
         while(div2.firstChild){
             div2.removeChild(div2.firstChild);

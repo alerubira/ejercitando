@@ -35,7 +35,8 @@
             <button onclick="agregar()">Agregar Libro</button>  
             <button onclick="seleccionarPorPrecio()">Seleccionar Por Precio</button>
             <input type="number" id="seleccionarPrecio" placeholder="Seleccione el precio y precione enter" style="display: none;"> 
-
+            <button onclick="seleccionarPorEtiqueta()">Seleccionar por Etiqueta</button>
+            <select name="select" id="select" style="display: none;"></select>
             <form id="miFormulario" onsubmit="event.preventDefault()" style="display: none;">
                 <label for="id">ID:</label>
                 <input type="text" id="id" name="id" required><br><br>
