@@ -339,7 +339,7 @@ La expresión self.indexOf(valor) === indice verifica si el índice del elemento
 Esto significa que si el índice del elemento actual no es igual al índice de su primera aparición,
  entonces es un elemento repetido y no será incluido en el resultado final.*/
 //console.log(array);
-let libros=[ 
+/*let libros=[ 
     { 
     "id" : "978-0641723445", 
     "label" : ["book","hardcover"], 
@@ -495,6 +495,90 @@ let libros=[
         while(div2.firstChild){
             div2.removeChild(div2.firstChild);
         }
-     }
+     }*/
+     const personas = [ 
+        { 
+        id: 1, 
+        datos: { 
+        nombre: "Jose", 
+        edad: 39, 
+        empleado: true, 
+        hobbies: ["tenis"], 
+        }, 
+        }, 
+        { 
+        id: 2, 
+        datos: { 
+        nombre: "Manuel", 
+        edad: 23, 
+        empleado: true, 
+        }, 
+        }, 
+        { 
+        id: 3, 
+        datos: { 
+        nombre: "Abigail", 
+        edad: 25, 
+        empleado: false, 
+        hobbies: ["basquet", "tenis", "futbol"], 
+        }, 
+        }, 
+        { 
+        id: 4, 
+        datos: { 
+        nombre: "Fabiana", 
+        edad: 12, 
+        empleado: true, 
+        hobbies: ["tenis", "golf"], 
+        }, 
+        }, 
+       ]; 
+      // let persona3=personas=>personas[2];
+       //console.log(persona3(personas));
+    /*let sinId=personas=>{
+        let aux=[];
+        for(let a of personas){
+            aux.push(a.datos) ;
+        }
+        return aux;
+    }
+    console.log(sinId(personas));*/
+    //let mayores24=personas=>personas.filter(obj=>obj.datos.edad>24);
+    //console.log(mayores24(personas));
+    //d.- Un array de personas ordenado por el nombre de la persona 
+    //aux.sort((a, b) => {
+     //   return a.suceso.localeCompare(b.suceso);
+   /*let ordenadosNombre=personas=>personas.sort((a,b)=>{
+          return a.datos.nombre.localeCompare(b.datos.nombre);
+   });
+   console.log(ordenadosNombre(personas));*/
+   //e.- Un array de personas que al menos tenga 2 hobbies 
+   /*let hobis=personas=>personas.filter(obj=>obj.datos.hobbies&&obj.datos.hobbies.length>1);
+   console.log(hobis(personas));*/
+  // f.- Un array con todos los diferentes hobbies que existen en personas
+  /*let hobis=personas=>{
+    let aux=new Set();
     
-    
+    for(let a of personas){
+        if(a.datos.hobbies){
+            for(let b of a.datos.hobbies){
+              aux.add(b);
+            }
+        }
+        
+    }
+    return [...aux];
+  };
+  
+  console.log(hobis(personas));*/
+ // g.- Un array de los nombres de personas que sean empleados.
+ let empleados=personas=>{
+    let nombres=[];
+    let per=personas.filter(obj=>obj.datos.empleado);
+    for(let a of per){
+        nombres.push(a.datos.nombre);
+    }
+return nombres;
+
+ }
+ console.log(empleados(personas));
