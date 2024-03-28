@@ -236,7 +236,10 @@ Compruebe el polimorfismo creando una función que reciba por parámetro cualqui
 los objetos e imprima su información. 
 Agregue un método a la clase Empleado que permita llevar la cantidad de instancias 
 creadas.*/
-/*class Persona {
+
+    
+    
+   /*class Persona {
     constructor(nombre,edad,altura,peso) {
         this.nombre=nombre;
         this.edad=edad;
@@ -263,9 +266,6 @@ class Empleado extends Persona{
         return new Empleado(persona.nombre, persona.edad,persona._altura, persona._peso, sueldo);
     }
 
-    
-    
-   
 }
 Ale=new Persona("Alejandro",45,1.70,80);
 Juan=new Empleado("Juan",43,1.78,85,300000);
