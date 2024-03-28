@@ -496,7 +496,7 @@ Esto significa que si el índice del elemento actual no es igual al índice de s
             div2.removeChild(div2.firstChild);
         }
      }*/
-     const personas = [ 
+     /*const personas = [ 
         { 
         id: 1, 
         datos: { 
@@ -532,7 +532,7 @@ Esto significa que si el índice del elemento actual no es igual al índice de s
         hobbies: ["tenis", "golf"], 
         }, 
         }, 
-       ]; 
+       ]; */
       // let persona3=personas=>personas[2];
        //console.log(persona3(personas));
     /*let sinId=personas=>{
@@ -572,7 +572,7 @@ Esto significa que si el índice del elemento actual no es igual al índice de s
   
   console.log(hobis(personas));*/
  // g.- Un array de los nombres de personas que sean empleados.
- let empleados=personas=>{
+ /*let empleados=personas=>{
     let nombres=[];
     let per=personas.filter(obj=>obj.datos.empleado);
     for(let a of per){
@@ -581,4 +581,14 @@ Esto significa que si el índice del elemento actual no es igual al índice de s
 return nombres;
 
  }
- console.log(empleados(personas));
+ console.log(empleados(personas));*/
+ /*const re=require("./fecha.js");
+ let principal=document.getElementById("principal");
+ //let nombre=re.nombre;
+ //console.log(nombre);
+ re.saludar();
+ 
+console.log(`${re.nombre}`);
+let pa=document.createElement("p");
+pa.textContent=re.nombre;
+principal.appendChild(pa);*/

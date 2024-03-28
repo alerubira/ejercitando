@@ -1,5 +1,5 @@
  
-    export function fecha(){ 
+    /*export function fecha(){ 
     // Crear un nuevo objeto Date que representa la fecha y hora actuales
 const fechaHoraActual = new Date();
 
@@ -16,6 +16,11 @@ const fechaHoraFormateada = `${año}-${mes < 10 ? '0' : ''}${mes}-${dia < 10 ? '
 
 console.log("Fecha y hora actual:", fechaHoraFormateada);
 
-    } 
+    }*/
+     let nombre="Alejandro";
+     function saludar(){
+        console.log(`Hola ${nombre}`);
+     }
+     module.exports={saludar:saludar,nombre:nombre}; 
     
     
